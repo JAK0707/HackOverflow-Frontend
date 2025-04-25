@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: 255 98 120;
+  --primary-light: 255 146 166;
+  --secondary: 97 85 255;
+  --secondary-light: 130 122 255;
+  --accent: 60 211 192;
+  --accent-light: 98 245 226;
+  --bg-light: 255 255 255;
+  --bg-dark: 17 19 35;
+  --text-light: 244 244 255;
+  --text-dark: 24 24 40;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Custom utility classes */
+.glass-effect {
+  @apply bg-white/10 backdrop-blur-lg border border-white/20 dark:bg-black/20 dark:border-white/10;
+}
+
+.gradient-text {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-[rgb(var(--primary))] to-[rgb(var(--secondary))];
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+}
+
+.button-primary {
+  @apply px-6 py-3 rounded-full bg-gradient-to-r from-[rgb(var(--primary))] to-[rgb(var(--secondary))] text-white font-medium hover:shadow-lg hover:shadow-[rgba(var(--primary),0.3)] transition-all duration-300;
+}
+
+.button-secondary {
+  @apply px-6 py-3 rounded-full bg-gradient-to-r from-[rgb(var(--secondary))] to-[rgb(var(--accent))] text-white font-medium hover:shadow-lg hover:shadow-[rgba(var(--secondary),0.3)] transition-all duration-300;
+}
+
+.button-outline {
+  @apply px-6 py-3 rounded-full border border-[rgba(var(--primary),0.3)] text-[rgb(var(--primary))] dark:text-[rgb(var(--primary-light))] font-medium hover:border-[rgba(var(--primary),0.6)] transition-all duration-300;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(var(--primary), 0.3);
+  pointer-events: none;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.pulse-animation {
+  animation: pulse 3s ease-in-out infinite;
+}
